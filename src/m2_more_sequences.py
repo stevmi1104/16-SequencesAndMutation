@@ -10,8 +10,8 @@ for ITERATING through SEQUENCES, including selections from:
   -- Looking at two sequences in parallel
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Mike Stevens.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -103,10 +103,14 @@ def shortest_string(strings):
       :type strings: list[str]   or tuple(str)
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    shortest=strings[0]
+    for k in range(1, len(strings)):
+        if len(strings[k])<len(shortest):
+            shortest = strings[k]
+    return (shortest)
 
 def run_test_index_of_largest_number():
     """ Tests the   index_of_largest_number   function. """
@@ -180,10 +184,14 @@ def index_of_largest_number(numbers, n):
 
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    longestint=0
+    for k in range(1, n):
+        if numbers[k]>numbers[longestint]:
+           longestint = k
+    return (longestint)
 
 # ----------------------------------------------------------------------
 # Some problems iterate (loop) through the sequence accessing TWO
@@ -226,7 +234,7 @@ def number_of_stutters(s):
     Side effects: None.
     Examples:
       -- number_of_stutters('xhhbrrs')  returns 2
-      -- number_of_stutters('xxxx')     returns 3
+      -- number_of_stutters('xxxx')     returns 3     ?????????????????
       -- number_of_stutters('xaxaxa')   returns 0
       -- number_of_stutters('xxx yyy xxxx')  returns 7
       -- number_of_stutters('xxxyyyxxxx')    returns 7
@@ -235,10 +243,14 @@ def number_of_stutters(s):
        :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    repeated=0
+    for k in range (1, len(s)):
+        if s[k]==s[k-1]:
+            repeated=repeated+1
+    return (repeated)
 
 def run_test_is_palindrome():
     """ Tests the   is_palindrome   function. """
@@ -247,6 +259,7 @@ def run_test_is_palindrome():
     print('Testing the   is_palindrome   function:')
     print('--------------------------------------------------')
 
+
     # Five tests.
     answer1 = is_palindrome('bob')
     answer2 = is_palindrome('obbo')
@@ -254,8 +267,8 @@ def run_test_is_palindrome():
     answer4 = is_palindrome('almosttxomla')
     answer5 = is_palindrome('abbz')
 
-    # The next would normally be written:
-    #      Murder for a jar of red rum
+     #The next would normally be written:
+     #     Murder for a jar of red rum
     # It IS a palindrome (ignoring spaces and punctuation).
     answer6 = is_palindrome('murderforajarofredrum')
 
@@ -264,7 +277,7 @@ def run_test_is_palindrome():
     print('The above should be: True True False False False True')
 
     # Explicit checks, to help students who return STRINGS that LOOK
-    # like    True    False.
+     #like    True    False.
     if answer1 is not True:
         print('Your code failed the 1st test for   is_palindrome.')
     if answer2 is not True:
@@ -308,7 +321,7 @@ def is_palindrome(s):
       :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -317,8 +330,15 @@ def is_palindrome(s):
     #   above are particularly good examples to work by hand.
     ####################################################################
     # ------------------------------------------------------------------
+    for k in range (len(s)):
+       # print (s[len(s)-1-k])
+        if s[k] == s[len(s)-1-k]:
+            pass
+        else:
+             return False
+    return True
 
-
+       # THIS IS WRONG FOR SOME REASON
 # ----------------------------------------------------------------------
 # Some problems loop (iterate) through two or more sequences
 #    IN PARALLEL, as in the   count_same   problem below.
@@ -375,10 +395,14 @@ def count_same(sequence1, sequence2):
       type: sequence2: tuple or list or string
     """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # done: 6. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    count = 0
+    for k in range(len(sequence1)):
+        if sequence1[k] == sequence2[k]:
+            count = count + 1
+    return count
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
